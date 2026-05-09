@@ -198,6 +198,29 @@ class FancyPotion(Potion):
         }
 
 
+# task 10
+class Crate(Entity):
+
+    def __init__(self, position, weight):
+        super().__init__(position)
+        self.weight = weight
+
+    def __str__(self):
+        return str(self.weight)
+
+    def __repr__(self) -> str:
+        x = self.position[0]
+        y = self.position[1]
+        z = self.weight
+        return f"Crate(({x}, {y}), {z})"
+
+    def get_weight(self):
+        return self.weight
+
+    def get_type(self) -> str:
+        return CRATE
+
+
 def main() -> None:
     pass
 
