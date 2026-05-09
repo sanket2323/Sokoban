@@ -153,6 +153,28 @@ class StrengthPotion(Potion):
         }
 
 
+# task 8
+class MovePotion(Potion):
+    def __init__(self, position):
+        super().__init__(position)
+
+    def __str__(self) -> str:
+        return MOVE_POTION
+
+    def __repr__(self) -> str:
+        x = self.position[0]
+        y = self.position[1]
+        return f"MovePotion(({x}, {y}))"
+
+    def get_type(self) -> str:
+        return MOVE_POTION
+
+    def effect(self):
+        return {
+            'moves': 5
+        }
+
+
 def main() -> None:
     pass
 
