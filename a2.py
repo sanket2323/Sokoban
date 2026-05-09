@@ -8,10 +8,28 @@ from support import *
 
 # Define your classes and functions here
 
+# task 1
+class Tile:
+
+    def __init__(self):
+        pass
+
+    def __str__(self) -> str:
+        return TILE
+
+    def __repr__(self) -> str:
+        return "Tile()"
+
+    def get_type(self) -> str:
+        return TILE
+
+    def is_blocking(self) -> bool:
+        return False
 
 
 def main() -> None:
     pass
+
 
 if __name__ == "__main__":
     main()
