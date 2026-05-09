@@ -46,7 +46,7 @@ class Floor(Tile):
 # task 3
 class Wall(Tile):
     def __init__(self):
-        pass
+        super().__init__()
 
     def __repr__(self) -> str:
         return "Wall()"
