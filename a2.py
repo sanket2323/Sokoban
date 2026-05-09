@@ -130,6 +130,29 @@ class Potion(Entity):
     def effect(self):
         return {}
 
+
+# task 7
+class StrengthPotion(Potion):
+    def __init__(self, position):
+        super().__init__(position)
+
+    def __str__(self) -> str:
+        return STRENGTH_POTION
+
+    def __repr__(self) -> str:
+        x = self.position[0]
+        y = self.position[1]
+        return f"StrengthPotion(({x}, {y}))"
+
+    def get_type(self) -> str:
+        return STRENGTH_POTION
+
+    def effect(self):
+        return {
+            'strength': 2
+        }
+
+
 def main() -> None:
     pass
 
