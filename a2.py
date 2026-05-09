@@ -26,6 +26,20 @@ class Tile:
     def is_blocking(self) -> bool:
         return False
 
+#task 2
+class Floor(Tile):
+    def __init__(self):
+        pass
+
+    def __repr__(self) -> str:
+        return "Floor()"
+
+    def __str__(self) -> str:
+        return FLOOR
+
+    def get_type(self) -> str:
+        return FLOOR
+
 
 def main() -> None:
     pass
