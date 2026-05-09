@@ -1,0 +1,143 @@
+WWWWWWWW
+WP  W  W
+W   W  W
+W 1 WG W
+W      W
+W      W
+WWWWWWWW
+
+Moves remaining: 12, strength: 1
+
+Enter move (or `q` to quit): s
+WWWWWWWW
+W   W  W
+WP  W  W
+W 1 WG W
+W      W
+W      W
+WWWWWWWW
+
+Moves remaining: 11, strength: 1
+
+Enter move (or `q` to quit): s
+WWWWWWWW
+W   W  W
+W   W  W
+WP1 WG W
+W      W
+W      W
+WWWWWWWW
+
+Moves remaining: 10, strength: 1
+
+Enter move (or `q` to quit): s
+WWWWWWWW
+W   W  W
+W   W  W
+W 1 WG W
+WP     W
+W      W
+WWWWWWWW
+
+Moves remaining: 9, strength: 1
+
+Enter move (or `q` to quit): d
+WWWWWWWW
+W   W  W
+W   W  W
+W 1 WG W
+W P    W
+W      W
+WWWWWWWW
+
+Moves remaining: 8, strength: 1
+
+Enter move (or `q` to quit): d
+WWWWWWWW
+W   W  W
+W   W  W
+W 1 WG W
+W  P   W
+W      W
+WWWWWWWW
+
+Moves remaining: 7, strength: 1
+
+Enter move (or `q` to quit): d
+WWWWWWWW
+W   W  W
+W   W  W
+W 1 WG W
+W   P  W
+W      W
+WWWWWWWW
+
+Moves remaining: 6, strength: 1
+
+Enter move (or `q` to quit): d
+WWWWWWWW
+W   W  W
+W   W  W
+W 1 WG W
+W    P W
+W      W
+WWWWWWWW
+
+Moves remaining: 5, strength: 1
+
+Enter move (or `q` to quit): w
+WWWWWWWW
+W   W  W
+W   W  W
+W 1 WP W
+W      W
+W      W
+WWWWWWWW
+
+Moves remaining: 4, strength: 1
+
+Enter move (or `q` to quit): w
+WWWWWWWW
+W   W  W
+W   WP W
+W 1 WG W
+W      W
+W      W
+WWWWWWWW
+
+Moves remaining: 3, strength: 1
+
+Enter move (or `q` to quit): w
+WWWWWWWW
+W   WP W
+W   W  W
+W 1 WG W
+W      W
+W      W
+WWWWWWWW
+
+Moves remaining: 2, strength: 1
+
+Enter move (or `q` to quit): d
+WWWWWWWW
+W   W PW
+W   W  W
+W 1 WG W
+W      W
+W      W
+WWWWWWWW
+
+Moves remaining: 1, strength: 1
+
+Enter move (or `q` to quit): s
+WWWWWWWW
+W   W  W
+W   W PW
+W 1 WG W
+W      W
+W      W
+WWWWWWWW
+
+Moves remaining: 0, strength: 1
+
+You lost!

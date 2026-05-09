@@ -1,0 +1,63 @@
+WWWWWWWW
+WP  W  W
+W S W  W
+W 3 WG W
+W      W
+W  M   W
+WWWWWWWW
+
+Moves remaining: 10, strength: 1
+
+Enter move (or `q` to quit): w
+Invalid move
+
+WWWWWWWW
+WP  W  W
+W S W  W
+W 3 WG W
+W      W
+W  M   W
+WWWWWWWW
+
+Moves remaining: 10, strength: 1
+
+Enter move (or `q` to quit): W
+Invalid move
+
+WWWWWWWW
+WP  W  W
+W S W  W
+W 3 WG W
+W      W
+W  M   W
+WWWWWWWW
+
+Moves remaining: 10, strength: 1
+
+Enter move (or `q` to quit): a
+Invalid move
+
+WWWWWWWW
+WP  W  W
+W S W  W
+W 3 WG W
+W      W
+W  M   W
+WWWWWWWW
+
+Moves remaining: 10, strength: 1
+
+Enter move (or `q` to quit): A
+Invalid move
+
+WWWWWWWW
+WP  W  W
+W S W  W
+W 3 WG W
+W      W
+W  M   W
+WWWWWWWW
+
+Moves remaining: 10, strength: 1
+
+Enter move (or `q` to quit): q
