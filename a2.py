@@ -64,7 +64,6 @@ class Wall(Tile):
 # task 4
 class Goal(Tile):
     def __init__(self):
-        super().__init__()
         self.is_filled_or_not = False
 
     def __str__(self) -> str:
@@ -87,6 +86,29 @@ class Goal(Tile):
 
     def get_type(self) -> str:
         return GOAL
+
+
+# task 5
+class Entity:
+    def __init__(self, position: Position):
+        self.position = position
+
+    def __str__(self) -> str:
+        return ENTITY
+
+    def __repr__(self) -> str:
+        x = self.position[0]
+        y = self.position[1]
+        return f"Entity(({x}, {y}))"
+
+    def get_type(self) -> str:
+        return ENTITY
+
+    def get_position(self) -> Position:
+        return self.position
+
+    def set_position(self, new_pos: Position):
+        self.position = new_pos
 
 
 def main() -> None:
