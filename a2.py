@@ -221,6 +221,51 @@ class Crate(Entity):
         return CRATE
 
 
+# task 11
+class Player(Entity):
+
+    def __init__(self, position: Position, strength: int, moves_remaining: int):
+        super().__init__(position)
+        self.strength = strength
+        self.moves_remaining = moves_remaining
+
+    def __str__(self):
+        return PLAYER
+
+    def __repr__(self) -> str:
+        w = self.position[0]
+        x = self.position[1]
+        y = self.strength
+        z = self.moves_remaining
+        return f"Player(({w}, {x}), {y}, {z})"
+
+    def get_type(self) -> str:
+        return PLAYER
+
+    def get_strength(self) -> int:
+        return self.strength
+
+    def add_strength(self, strength):
+        self.strength += strength
+
+    def get_moves_remaining(self) -> int:
+        return self.moves_remaining
+
+    def add_moves_remaining(self, moves):
+        self.moves_remaining += moves
+
+    def apply_effect(self, potion_effect):
+        strength_value = 0
+        moves_value = 0
+        if 'strength' in potion_effect:
+            strength_value = potion_effect['strength']
+
+        if 'moves' in potion_effect:
+            moves_value = potion_effect['moves']
+        self.add_strength(strength_value)
+        self.add_moves_remaining(moves_value)
+
+
 def main() -> None:
     pass
 
