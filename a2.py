@@ -61,6 +61,34 @@ class Wall(Tile):
         return True
 
 
+# task 4
+class Goal(Tile):
+    def __init__(self):
+        super().__init__()
+        self.is_filled_or_not = False
+
+    def __str__(self) -> str:
+        if not self.is_filled_or_not:
+            return GOAL
+        else:
+            return FILLED_GOAL
+
+    def __repr__(self) -> str:
+        return "Goal()"
+
+    def is_filled(self) -> bool:
+        return self.is_filled_or_not
+
+    def fill(self):
+        self.is_filled_or_not = True
+
+    def unfill(self):
+        self.is_filled_or_not = False
+
+    def get_type(self) -> str:
+        return GOAL
+
+
 def main() -> None:
     pass
 
