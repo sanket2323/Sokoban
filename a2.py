@@ -111,6 +111,25 @@ class Entity:
         self.position = new_pos
 
 
+# task 6
+class Potion(Entity):
+    def __init__(self, position):
+        super().__init__(position)
+
+    def __str__(self) -> str:
+        return POTION
+
+    def __repr__(self) -> str:
+        x = self.position[0]
+        y = self.position[1]
+        return f"Potion(({x}, {y}))"
+
+    def get_type(self) -> str:
+        return POTION
+
+    def effect(self):
+        return {}
+
 def main() -> None:
     pass
 
