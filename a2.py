@@ -266,6 +266,55 @@ class Player(Entity):
         self.add_moves_remaining(moves_value)
 
 
+# task 12
+def read_file(maze_file: str) -> tuple[Maze, list[Entity], Player]:
+    file = open(maze_file)
+    lines = file.readlines()
+    steps = lines[0].split(" ")
+
+    strength = int(steps[0])
+    moves = int(steps[1])
+    maze = []
+    entity = []
+    player = []
+
+    for row_index, line in enumerate(lines[1:]):
+
+        inner_row = []
+        for col_index, char in enumerate(line):
+            # building Maze
+            if char == 'W':
+                inner_row.append(Wall())
+            elif char == 'G':
+                inner_row.append(Goal())
+            elif char == '\n':
+                pass
+            else:
+                inner_row.append(Floor())
+
+            # building Entity
+            position = (row_index, col_index)
+            weight = char
+            if char.isdigit():
+                entity.append(Crate(position, int(weight)))
+
+            elif char == 'P':
+                player.append(Player(position, strength, moves))
+
+            elif char == 'S':
+                entity.append(StrengthPotion(position))
+
+            elif char == 'F':
+                entity.append(FancyPotion(position))
+
+            elif char == 'M':
+                entity.append(MovePotion(position))
+
+        maze.append(inner_row)
+
+    return maze, entity, player[0]
+
+
 def main() -> None:
     pass
 
