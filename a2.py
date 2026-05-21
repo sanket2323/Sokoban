@@ -1,4 +1,6 @@
 # DO NOT modify or add any import statements
+from sys import flags
+
 from support import *
 
 
@@ -313,6 +315,126 @@ def read_file(maze_file: str) -> tuple[Maze, list[Entity], Player]:
         maze.append(inner_row)
 
     return maze, entity, player[0]
+
+
+# task 13
+class SokobanModel:
+    def __init__(self, maze, entities, player):
+        self.maze = maze
+        self.entities = entities
+        self.player = player
+
+    def get_maze(self) -> Maze:
+        return self.maze
+
+    def get_entities(self) -> list[Entity]:
+        return self.entities
+
+    def get_player(self):
+        return self.player
+
+    def entity_positions(self) -> dict[Position, Entity]:
+        position_dict = {}
+        for entity in self.entities:
+            position_dict[entity.get_position()] = entity
+        return position_dict
+
+    def has_won(self) -> bool:
+        for row in self.maze:
+            for tile in row:
+                if tile.get_type() == GOAL and not tile.is_filled():
+                    return False
+        return True
+
+    def has_lost(self) -> bool:
+        if self.player.get_moves_remaining() <= 0 and not self.has_won():
+            return True
+        return False
+
+    def shove_crate(self, crate, direction) -> bool:
+
+        valid_direction_list = ['w', 'W', 'a', 'A', 's', 'S', 'd', 'D']
+
+        # check if the direction is valid direction
+        if direction not in valid_direction_list:
+            return False
+
+        # strength check
+        if self.player.get_strength() < crate.get_weight():
+            return False
+        row, col = crate.get_position()
+
+        # calculate new positions
+        if direction.lower() == 'w':
+            new_position = (row - 1, col)
+
+        elif direction.lower() == 'a':
+            new_position = (row, col - 1)
+
+        elif direction.lower() == 's':
+            new_position = (row + 1, col)
+
+        else:
+            new_position = (row, col + 1)
+
+        # check if new_position is wall or another entity
+        maze = self.get_maze()
+
+        if maze[new_position[0]][new_position[1]].is_blocking():
+            return False
+
+        # check if another entity exist or not
+
+        entiny_position = self.entity_positions()
+
+        if new_position in entiny_position:
+            return False
+
+        # old position of crate
+        old_row, old_col = crate.get_position()
+
+        # unfill the goal
+        if maze[old_row][old_col].get_type() == GOAL:
+            self.maze[old_row][old_col].unfill()
+
+        # move crate
+        crate.set_position(new_position)
+
+        new_row, new_col = new_position
+        if self.maze[new_row][new_col].get_type() == GOAL:
+            self.maze[new_row][new_col].fill()
+
+        return True
+
+    def attempt_move(self, direction: str) -> bool:
+        valid_direction_list = ['w', 'W', 'a', 'A', 's', 'S', 'd', 'D']
+
+        # invalid direction
+        if direction not in valid_direction_list:
+            return False
+
+        # current player position
+        row, col = self.player.get_position()
+
+        # calculate new position
+        if direction.lower() == 'w':
+            new_position = (row - 1, col)
+
+        elif direction.lower() == 'a':
+            new_position = (row, col - 1)
+
+        elif direction.lower() == 's':
+            new_position = (row + 1, col)
+
+        else:
+            new_position = (row, col + 1)
+
+        # check if wall
+        maze = self.maze()
+        if maze[new_position[0]][new_position[1]].is_blocking():
+            return False
+
+        return None
 
 
 def main() -> None:
