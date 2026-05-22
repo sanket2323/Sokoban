@@ -883,12 +883,42 @@ class SokobanModel:
         else:
             new_position = (row, col + 1)
 
-        # check if wall
-        maze = self.maze()
+        # check if wall is blocking
+        maze = self.get_maze()
         if maze[new_position[0]][new_position[1]].is_blocking():
             return False
 
-        return None
+        # check if entity is blocking
+        entity_position = self.entity_positions()
+
+        if new_position in entity_position:
+
+            entity_type = entity_position[new_position]
+
+            # crate handling
+            if entity_type.get_type() == CRATE:
+                # push the crate
+
+                if not self.shove_crate(entity_type, direction):
+                    return False
+
+            # potion handling
+            else:
+                self.player.apply_effect(entity_type.effect())
+                self.entities.remove(entity_type)
+
+        # move player
+        self.player.set_position(new_position)
+
+        # subtract moves
+        self.player.add_moves_remaining(-1)
+        return True
+
+
+# task 14
+class Sokoban:
+    def __init__(self, maze_file: str):
+        maze, entities, player = read_file(maze_file)
 
 
 def main() -> None:
