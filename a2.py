@@ -918,7 +918,60 @@ class SokobanModel:
 # task 14
 class Sokoban:
     def __init__(self, maze_file: str):
+        """
+        Construct a new Sokoban game using the given maze file.
+        """
         maze, entities, player = read_file(maze_file)
+        self.model = SokobanModel(maze,entities, player)
+
+    def display(self):
+        """
+        Display the current game state
+        """
+
+        maze = self.model.get_maze()
+        player = self.model.get_player()
+        entities = self.model.get_entities()
+
+        display_game(maze,entities,player)
+
+    def play(self):
+        """
+        Play complete game of Sokoban
+        """
+        self.display()
+
+        while not self.model.has_won() and not self.model.has_lost():
+
+            move = input(MOVE_PROMPT)
+
+            #quit game
+            if move.lower() == 'q':
+                break
+
+            result = self.model.attempt_move(move)
+
+            if not result:
+                print(INVALID_MSG)
+
+            self.display()
+
+        if self.model.has_won():
+            print(WIN_MSG)
+
+        else:
+            print(LOSE_MSG)
+
+
+#
+
+
+
+
+
+
+
+
 
 
 def main() -> None:
