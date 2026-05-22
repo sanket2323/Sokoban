@@ -1,6 +1,4 @@
 # DO NOT modify or add any import statements
-from sys import flags
-
 from support import *
 
 
@@ -922,7 +920,7 @@ class Sokoban:
         Construct a new Sokoban game using the given maze file.
         """
         maze, entities, player = read_file(maze_file)
-        self.model = SokobanModel(maze,entities, player)
+        self.model = SokobanModel(maze, entities, player)
 
     def display(self):
         """
@@ -931,9 +929,9 @@ class Sokoban:
 
         maze = self.model.get_maze()
         player = self.model.get_player()
-        entities = self.model.get_entities()
+        entities = self.model.entity_positions()
 
-        display_game(maze,entities,player)
+        display_game(maze, entities, player)
 
     def play(self):
         """
@@ -945,9 +943,9 @@ class Sokoban:
 
             move = input(MOVE_PROMPT)
 
-            #quit game
+            # quit game
             if move.lower() == 'q':
-                break
+                return
 
             result = self.model.attempt_move(move)
 
@@ -963,19 +961,14 @@ class Sokoban:
             print(LOSE_MSG)
 
 
-#
-
-
-
-
-
-
-
-
+# task 15
+def play_game(file: str):
+    game = Sokoban(file)
+    game.play()
 
 
 def main() -> None:
-    pass
+    play_game('levels/level2.txt')
 
 
 if __name__ == "__main__":
